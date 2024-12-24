@@ -73,11 +73,11 @@
 
         <!-- Get All Notes Endpoint -->
         <div class="endpoint">
-            <h2>GET /</h2>
+            <h2>GET /api</h2>
             <p><strong>Description:</strong> Fetch all the notes stored in the application.</p>
             <p><strong>Request:</strong> No request body is required.</p>
             <div class="request">
-                <code>GET http://localhost:3000/</code>
+                <code>GET http://localhost:3000/api</code>
             </div>
             <p><strong>Response:</strong> A list of all notes in JSON format.</p>
             <div class="response">
@@ -102,7 +102,7 @@
 
         <!-- Create Note Endpoint -->
         <div class="endpoint">
-            <h2>POST /</h2>
+            <h2>POST /api</h2>
             <p><strong>Description:</strong> Create a new note and store it in the application.</p>
             <p><strong>Request Body:</strong> You must send a JSON body containing the title and text of the note.</p>
             <div class="request">
@@ -121,7 +121,7 @@
 
         <!-- Delete Note Endpoint -->
         <div class="endpoint">
-            <h2>DELETE /</h2>
+            <h2>DELETE /api</h2>
             <p><strong>Description:</strong> Delete an existing note from the application based on its ID.</p>
             <p><strong>Request Body:</strong> You must send a JSON body containing the key (ID) of the note to be deleted.</p>
             <div class="request">
@@ -139,7 +139,7 @@
 
         <h2>Notes:</h2>
         <ul>
-            <li>All requests should be made to <code>http://localhost:3000/</code></li>
+            <li>All requests should be made to <code>http://localhost:3000/api</code></li>
             <li>The POST request requires a JSON body with <code>title</code> and <code>text</code> for creating a new note.</li>
             <li>The DELETE request requires a JSON body with a <code>key</code> field representing the note ID to be deleted.</li>
         </ul>
