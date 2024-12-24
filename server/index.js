@@ -10,7 +10,7 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(__dirname+'/public'))
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://your-project-name.vercel.app']
+    origin: ['http://localhost:5173', 'https://noterapp.vercel.app/']
 }));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.json())
