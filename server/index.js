@@ -33,15 +33,17 @@ const app = express();
 // Use session middleware before passport.session
 app.use(
     session({
-        secret: "TOPSECRET",
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            secure: false, // Set true in production with HTTPS
-            sameSite: "lax",
-        },
+      secret: "TOPSECRET",
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        secure: true,  // Makes sure cookie is only sent over HTTPS
+        sameSite: "None",  // Required for cross-origin requests
+        httpOnly: true,  // Cookie is not accessible by JavaScript for security
+      },
     })
-);
+  );
+  
 app.use(passport.initialize());
 app.use(passport.session());
 const __dirname = dirname(fileURLToPath(import.meta.url));
