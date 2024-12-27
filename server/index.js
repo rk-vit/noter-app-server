@@ -66,6 +66,8 @@ app.get("/",(req,res)=>{
 
 // Backend route to check if the user is authenticated
 app.get('/auth/protect', (req, res) => {
+    console.log("User details",req.user);
+    console.log("Authenticated: ", req.isAuthenticated());  // Log the authentication status
     if (req.isAuthenticated()) {
       res.status(200).json({ authenticated: true, user: req.user });
     } else {
