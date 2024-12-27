@@ -30,6 +30,7 @@ pool.connect((err) => {
 
 //defenitions,initialization starts
 const app = express();
+app.set("trust proxy",1);
 // Use session middleware before passport.session
 app.use(
   session({
