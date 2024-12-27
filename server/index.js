@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import {dirname} from "path";
 import { fileURLToPath } from "url";
 import pg from "pg";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import passport from "passport";
 import { Strategy } from "passport-local";
 import session  from "express-session";
