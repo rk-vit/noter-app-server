@@ -40,6 +40,7 @@ app.use(
             secure: true, // Set true in production with HTTPS
             sameSite: "None",
             httpOnly: true,
+            domain:'.vercel.app'
         },
     })
 );
