@@ -97,13 +97,6 @@ app.post("/login", (req, res, next) => {
                 console.error("Login Error:", error);
                 return  res.sendStatus(500);
             } else {
-                res.cookie("connect.sid", req.sessionID, {
-                    httpOnly: true,
-                    secure: process.env.NODE_ENV === "production", // Secure cookies in production
-                    sameSite: "None", // For cross-site cookie sharing
-                    maxAge: 86400000 // Cookie expiration (1 day)
-                });
-
                 // Send a successful response after setting the cookie
                 res.sendStatus(200);
                 console.log("Login Successful");
