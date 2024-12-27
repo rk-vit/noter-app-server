@@ -37,7 +37,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure: process.env.NODE_ENV === "production",  // Ensure secure cookies in production (HTTPS)
+      secure: true,  // Ensure secure cookies in production (HTTPS)
       sameSite: "None", // Allow cross-site cookies for frontend and backend hosted on different domains
       httpOnly: true,   // Prevent client-side JS from accessing cookies (for security)
       maxAge: 24 * 60 * 60 * 1000, // Optional: Set expiration time for the session cookie
