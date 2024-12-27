@@ -33,15 +33,18 @@ const app = express();
 // Use session middleware before passport.session
 app.use(
     session({
-        secret: "TOPSECRET",
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            secure: true, // Cookie will only be sent over HTTPS
-            sameSite: "None", // Required for cross-site cookies
-        },
+      secret: "TOPSECRET",
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        secure: process.env.NODE_ENV === "production",  // Ensure secure cookies in production (HTTPS)
+        sameSite: "None", // Allow cross-site cookies for frontend and backend hosted on different domains
+        httpOnly: true,   // Prevent client-side JS from accessing cookies (for security)
+        maxAge: 24 * 60 * 60 * 1000, // Optional: Set expiration time for the session cookie
+      },
     })
-);
+  );
+  
 
   
 app.use(passport.initialize());
@@ -93,8 +96,13 @@ app.post("/login", (req, res, next) => {
                 console.error("Login Error:", error);
                 return  res.sendStatus(500);
             } else {
+                res.cookie("connect.sid", req.sessionID, {
+                    httpOnly: true,
+                    secure: process.env.NODE_ENV === "production", // Ensure secure cookies in production
+                    sameSite: "None", // Allow cross-origin cookies
+                    maxAge: 24 * 60 * 60 * 1000, // Optional: Set expiration for the session cookie
+                  });
                 console.log("Login Successful");
-                res.sendStatus(200);  
             }
         });
     })(req, res, next); // Pass req, res, and next to allow proper flow
