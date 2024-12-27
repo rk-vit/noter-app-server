@@ -37,10 +37,8 @@ app.use(
         resave: false,
         saveUninitialized: true,
         cookie: {
-            secure: true, // Set true in production with HTTPS
-            sameSite: "None",
-            httpOnly: true,
-            domain:'.vercel.app'
+            secure: false, // Set true in production with HTTPS
+            sameSite: "lax",
         },
     })
 );
