@@ -33,16 +33,16 @@ const app = express();
 // Use session middleware before passport.session
 app.use(
     session({
-      secret: "TOPSECRET",
-      resave: false,
-      saveUninitialized: true,
-      cookie: {
-        secure: true,  // Makes sure cookie is only sent over HTTPS
-        sameSite: "None",  // Required for cross-origin requests
-        httpOnly: true,  // Cookie is not accessible by JavaScript for security
-      },
+        secret: "TOPSECRET",
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            secure: true, // Cookie will only be sent over HTTPS
+            sameSite: "None", // Required for cross-site cookies
+        },
     })
-  );
+);
+
   
 app.use(passport.initialize());
 app.use(passport.session());
